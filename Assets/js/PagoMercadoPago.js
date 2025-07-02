@@ -1,14 +1,18 @@
 document.addEventListener("DOMContentLoaded", () => {
-
+    const Carrito = JSON.parse(document.getElementById("data_mp").dataset.products);
     const PUBLIC_KEY_MP = document.getElementById("data_mp").dataset.key;
     const BASE_URL = document.getElementById("data_mp").dataset.url;
-    const total_pagar = document.getElementById("data_mp").dataset.total;
+    let Click = false;
+    //const total_pagar = document.getElementById("data_mp").dataset.total;
     const mp = new MercadoPago(PUBLIC_KEY_MP, {
         locale: "es-PE"
     });
     // Accion principal
     document.getElementById("PagarMC").addEventListener("click", () => {
-        alert(total_pagar)
+        if (Click) return;
+        Click = true;
+        
+        document.getElementById("loadermp").style.display = "flex";
         SendData();
     })
 
@@ -23,18 +27,20 @@ document.addEventListener("DOMContentLoaded", () => {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                products: total_pagar
+                products: Carrito
             }) 
         })
             .then(res => res.json())
             .then(data => {
                 console.log("Respuesta del backend:");
                 console.log(data);
+                document.getElementById("loadermp").style.display = "none";
                 const preferenceId = data.preferenceId;
                 generateBrick(preferenceId);
             })
             .catch(error => {
                 console.error("Ocurrió un error en el fetch:", error);
+                document.getElementById("loadermp").style.display = "none";
             });
     }
 
