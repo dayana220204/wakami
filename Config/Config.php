@@ -15,7 +15,10 @@
 	//Para envío de correo
 	const ENVIRONMENT = 1; // Local: 0, Produccón: 1;
 
- 
+ 	//MERCADO PAGO CREDENCIALES
+	const PUBLIC_KEY_MP="APP_USR-e0986749-4d8e-49c3-952a-cf82162a2428";
+	const ACCESS_TOKEN_MP="APP_USR-933836705807625-061309-b800135f1ba2a1b8cb7807adca658a2e-2487241761";
+
 	const SPD = ".";
 	const SPM = ",";
 

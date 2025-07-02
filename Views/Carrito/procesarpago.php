@@ -266,6 +266,9 @@ $infoTerminos = !empty(getInfoPage(PTERMINOS)) ? getInfoPage(PTERMINOS)['conteni
 										<span>Contra Entrega</span>
 									</label>
 								</div>
+
+								
+
 								<div id="divtipopago" class="notblock" >
 									<label for="listtipopago">Tipo de pago</label>
 									<div class="rs1-select2 rs2-select2 bor8 bg0 m-b-12 m-t-9">
@@ -289,14 +292,28 @@ $infoTerminos = !empty(getInfoPage(PTERMINOS)) ? getInfoPage(PTERMINOS)['conteni
 									</button>
 								</div>
 
-								  <!-- Contenedor para la alerta -->
-        <div id="mensajePedido" class="alert alert-success mt-3" style="display: none;">
-            Pedido registrado
-        </div>
+								<div style="margin-top:16px;">
+									<label for="mercadopago">
+										<input type="radio" id="PagarMC">
+										<span>Pagar con Mercado Pago</span>
+										<div id="data_mp" data-key="<?= PUBLIC_KEY_MP ?>" data-total="<?= formatMoney($total)?>" data-url="<?= BASE_URL ?>"  style="display:none"></div>
+									</label>
+								</div>
+
+								<!-- Contenedor pde mercado pago-->
+								<div style="padding: 10px; margin: 10px;" >
+									<div id="wallet_container"></div>
+								</div>
+								
+								<!-- Contenedor para la alerta -->
+								<div id="mensajePedido" class="alert alert-success mt-3" style="display: none;">
+									Pedido registrado
+								</div>
+								
 								<div id="divpaypal">
-									<div>
+									<!-- <div>
 										<p>Para completar la transacción, te enviaremos a los servidores seguros de PayPal.</p>
-									</div>
+									</div> -->
 									<br>
 									<div id="paypal-btn-container"></div>
 								</div>
@@ -308,6 +325,7 @@ $infoTerminos = !empty(getInfoPage(PTERMINOS)) ? getInfoPage(PTERMINOS)['conteni
 			</div>
 		</div>
 	</div>
+
 <script>
         document.getElementById("registerButton").addEventListener("click", function(event) {
             event.preventDefault();  // Previene el comportamiento predeterminado del botón (por ejemplo, el envío de un formulario)
@@ -319,4 +337,3 @@ $infoTerminos = !empty(getInfoPage(PTERMINOS)) ? getInfoPage(PTERMINOS)['conteni
 
  ?>
 
-	

@@ -72,6 +72,8 @@
     <link href='http://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
     <!-- Modernizer js -->
     <script src="<?= media() ?>/tienda/js/modernizr.custom.js"></script>
+	<!--  MERCAQDO PAGO SDK    -->
+    <script src="https://sdk.mercadopago.com/js/v2"></script>
 
 
 <script>
