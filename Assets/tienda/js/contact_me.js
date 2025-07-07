@@ -16,7 +16,9 @@ $(function() {
             // Check for white space in name for Success/Fail message
             if (firstName.indexOf(' ') >= 0) {
                 firstName = name.split(' ').slice(0, -1).join(' ');
-            }
+                
+            } 
+
             $.ajax({
                 url: "././mail/contact_me.php",
                 type: "POST",

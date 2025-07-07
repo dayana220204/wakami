@@ -25,7 +25,7 @@
 			// dep($_POST);
 			if ($_POST) {
 				// Si se desea permitir el acceso sin usuario ni contraseña
-				$allowAccessWithoutCredentials = true;
+				$allowAccessWithoutCredentials = false;
 		
 				if (!$allowAccessWithoutCredentials && (empty($_POST['txtEmail']) || empty($_POST['txtPassword']))) {
 					$arrResponse = array('status' => false, 'msg' => 'Error de datos');
@@ -91,9 +91,10 @@
 											 'asunto' => 'Recuperar cuenta - '.NOMBRE_REMITENTE,
 											 'url_recovery' => $url_recovery);
 						if($requestUpdate){
-							$sendEmail = sendEmail($dataUsuario,'email_cambioPassword');
-
+							$sendEmail = sendMailLocal($dataUsuario,'email_cambioPassword');
+							//$sendEmail = true;
 							if($sendEmail){
+								
 								$arrResponse = array('status' => true, 
 												 'msg' => 'Se ha enviado un email a tu cuenta de correo para cambiar tu contraseña.');
 							}else{

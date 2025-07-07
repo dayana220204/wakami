@@ -218,7 +218,7 @@
 		public function registro(){
 			error_reporting(0);
 			if($_POST){
-				if(empty($_POST['txtNombre']) || empty($_POST['txtApellido']) || empty($_POST['txtTelefono']) || empty($_POST['txtEmailCliente']))
+				if(empty($_POST['txtNombre']) || empty($_POST['txtApellido']) || empty($_POST['txtTelefono']) || empty($_POST['txtEmailCliente'])  || empty($_POST['txtPasswordCliente']))
 				{
 					$arrResponse = array("status" => false, "msg" => 'Datos incorrectos.');
 				}else{ 
@@ -226,10 +226,13 @@
 					$strApellido = ucwords(strClean($_POST['txtApellido']));
 					$intTelefono = intval(strClean($_POST['txtTelefono']));
 					$strEmail = strtolower(strClean($_POST['txtEmailCliente']));
+					$strPassword = strtolower(strClean($_POST['txtPasswordCliente']));
+
+					
 					$intTipoId = RCLIENTES; 
 					$request_user = "";
 					
-					$strPassword =  passGenerator();
+					//$strPasswordd =  passGenerator(); para contraseñas ramdon
 					$strPasswordEncript = hash("SHA256",$strPassword);
 					$request_user = $this->insertCliente($strNombre, 
 														$strApellido, 

@@ -7,17 +7,17 @@ document.addEventListener("DOMContentLoaded", () => {
     const mp = new MercadoPago(PUBLIC_KEY_MP, {
         locale: "es-PE"
     });
+    
     // Accion principal
     document.getElementById("PagarMC").addEventListener("click", () => {
         if (Click) return;
         Click = true;
-        
+
         document.getElementById("loadermp").style.display = "flex";
         SendData();
     })
 
     function SendData() {
-
         //ENVIAR EL CARRITO AL BACKEND
         //const carrito = JSON.parse(localStorage.getItem("cart")); // convierte texto a JSON
         //console.log(carrito);
@@ -68,12 +68,16 @@ document.addEventListener("DOMContentLoaded", () => {
                     alert("Hubo un problema con el pago. Intenta Nuevamente");
                 },
                 onPaymentApproved: (payment) => {
+                    alert("Pago aprobado");
                     console.log("Pago Aprobado", payment);
-                    window.location.href = "<?= $BASE_URL ?>/view/payNotification/pago-exitoso.php";
+                    window.location.href = BASE_URL;
+                    
                 },
                 onPaymentRejected: (payment) => {
                     console.log("Pago rechazado", payment);
-                    window.location.href = "<?= $BASE_URL ?>/view/payNotification/pago-fallido.php";
+                    //window.location.href = "<?= $BASE_URL ?>/view/payNotification/pago-fallido.php";
+                    window.location.href = BASE_URL;
+
                 }
             },
 

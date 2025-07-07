@@ -146,11 +146,55 @@ function sendMailLocal($data, $template)
         $mail->Body    = $mensaje;
 
         $mail->send();
-        echo 'Mensaje enviado';
+        echo json_encode(['status' => true, 'msg' => 'Correo enviado']);
+        exit;
     } catch (Exception $e) {
-        echo "Error en el envío del mensaje: {$mail->ErrorInfo}";
+        echo json_encode(['status' => false, 'msg' => 'Error: ' . $mail->ErrorInfo]);
+        exit;
     }
 }
+
+// este si funciona
+/* function sendMailLocal($data, $template)
+{
+    //Create an instance; passing `true` enables exceptions
+    $mail = new PHPMailer(true);
+    ob_start();
+    require_once("Views/Template/Email/" . $template . ".php");
+    $mensaje = ob_get_clean();
+
+    try {
+        //Server settings
+        $mail->SMTPDebug = 0;
+        $mail->isSMTP();
+        $mail->Host       = 'sandbox.smtp.mailtrap.io';
+        $mail->SMTPAuth   = true;
+        $mail->Username   = 'cabefe1b701515';
+        $mail->Password   = '814373d8f0900b';
+        $mail->Port       = 587;
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;                                  //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+
+        //Recipients
+        $mail->setFrom('solistoke@gmail.com', 'Servidor Local');
+        $mail->addAddress($data['email']);     //Add a recipient
+        if (!empty($data['emailCopia'])) {
+            $mail->addBCC($data['emailCopia']);
+        }
+
+        //Content
+        $mail->isHTML(true);                                  //Set email format to HTML
+        $mail->Subject = $data['asunto'];
+        $mail->Body    = $mensaje;
+
+        $mail->send();
+        echo json_encode(['status' => true, 'msg' => 'Correo enviado']);
+        exit;
+        
+    } catch (Exception $e) {
+        echo json_encode(['status' => false, 'msg' => 'Error: ' . $mail->ErrorInfo]);
+        exit;
+    }
+} */
 
 function getPermisos(int $idmodulo)
 {

@@ -551,6 +551,7 @@ CREATE TABLE `tipopago` (
 INSERT INTO `tipopago` (`idtipopago`, `tipopago`, `status`) VALUES
 (1, 'PayPal', 1),
 (2, 'Efectivo', 1);
+(3, 'Mercado Pago', 1);
 
 -- --------------------------------------------------------
 

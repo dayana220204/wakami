@@ -148,20 +148,21 @@ if(document.querySelector("#formRegister")){
         let strApellido = document.querySelector('#txtApellido').value;
         let strEmail = document.querySelector('#txtEmailCliente').value;
         let intTelefono = document.querySelector('#txtTelefono').value;
+		let strPassword = document.querySelector('#txtPasswordCliente').value;
 
-        if(strApellido == '' || strNombre == '' || strEmail == '' || intTelefono == '' )
+        if(strApellido == '' || strNombre == '' || strEmail == '' || intTelefono == '' || strPassword=='' )
         {
             swal("Atención", "Todos los campos son obligatorios." , "error");
             return false;
         }
 
-        let elementsValid = document.getElementsByClassName("valid");
+        /* let elementsValid = document.getElementsByClassName("valid");
         for (let i = 0; i < elementsValid.length; i++) { 
             if(elementsValid[i].classList.contains('is-invalid')) { 
                 swal("Atención", "Por favor verifique los campos en rojo." , "error");
                 return false;
             } 
-        } 
+        }  */
         divLoading.style.display = "flex";
         let request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
         let ajaxUrl = base_url+'/Tienda/registro'; 

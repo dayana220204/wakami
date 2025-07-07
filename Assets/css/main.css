@@ -15881,21 +15881,8 @@ be a descendant of the grid when it is being dragged.
   }
 }
 
-.material-half-bg {
-  height: 100vh;
-  background-color: #e7e7e7;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: -1;
-}
 
-.material-half-bg .cover {
-  background-color: #009688;
-  height: 50vh;
-}
+
 
 .m-loader {
   position: relative;
@@ -16363,6 +16350,8 @@ be a descendant of the grid when it is being dragged.
 }
 
 .login-content {
+ 
+
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -16381,17 +16370,23 @@ be a descendant of the grid when it is being dragged.
 
 .login-content .logo {
   margin-bottom: 40px;
-  font-family: "Niconne";
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   color: #fff;
 }
 
 .login-content .logo h1 {
-  font-size: 52px;
-  font-weight: 400;
+  font-size: 30px;
+  font-weight: 700;
+  font-style: normal;
+  color: #ffffff;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  letter-spacing: 1px;
+  margin: 0;
 }
 
 .login-content .login-box {
   position: relative;
+  border-radius: 15px;
   min-width: 350px;
   min-height: 390px;
   background-color: #fff;
@@ -16446,6 +16441,7 @@ be a descendant of the grid when it is being dragged.
   -webkit-transition: all 0.5s ease-in-out;
   -o-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
+  border-radius: 13px;
 }
 
 .login-content .login-box .forget-form {

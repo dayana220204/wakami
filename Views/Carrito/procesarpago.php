@@ -88,6 +88,12 @@ $infoTerminos = !empty(getInfoPage(PTERMINOS)) ? getInfoPage(PTERMINOS)['conteni
 	}).render('#paypal-btn-container');
 </script>
 
+<!-- Logo -->
+<div class="logo " id="divLoading">
+    <i class="fas fa-shopping-cart"></i>
+    <h1><?= $data['page_title']; ?></h1>
+</div>
+
 <!-- Modal -->
 <div class="modal fade" id="modalTerminos" tabindex="-1" aria-hidden="true">
 	<div class="modal-dialog modal-lg">
@@ -153,7 +159,7 @@ $infoTerminos = !empty(getInfoPage(PTERMINOS)) ? getInfoPage(PTERMINOS)['conteni
 							</li>
 						</ul>
 						<div class="tab-content" id="myTabContent">
-							<div class="tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="home-tab">
+							<div class="tab-pane active" id="login" role="tabpanel" aria-labelledby="home-tab">
 								<br>
 								<form id="formLogin">
 									<div class="form-group">
@@ -174,21 +180,27 @@ $infoTerminos = !empty(getInfoPage(PTERMINOS)) ? getInfoPage(PTERMINOS)['conteni
 									<div class="row">
 										<div class="col col-md-6 form-group">
 											<label for="txtNombre">Nombres</label>
-											<input type="text" class="form-control valid validText" id="txtNombre" name="txtNombre" required="">
+											<input type="text" class="form-control valid validText" id="txtNombre" name="txtNombre" >
 										</div>
 										<div class="col col-md-6 form-group">
 											<label for="txtApellido">Apellidos</label>
-											<input type="text" class="form-control valid validText" id="txtApellido" name="txtApellido" required="">
+											<input type="text" class="form-control valid validText" id="txtApellido" name="txtApellido" >
 										</div>
 									</div>
 									<div class="row">
 										<div class="col col-md-6 form-group">
 											<label for="txtTelefono">Teléfono</label>
-											<input type="text" class="form-control valid validNumber" id="txtTelefono" name="txtTelefono" required="" onkeypress="return controlTag(event);">
+											<input type="text" class="form-control valid validNumber" id="txtTelefono" name="txtTelefono"  onkeypress="return controlTag(event);">
 										</div>
 										<div class="col col-md-6 form-group">
 											<label for="txtEmailCliente">Email</label>
-											<input type="email" class="form-control valid validEmail" id="txtEmailCliente" name="txtEmailCliente" required="">
+											<input type="email" class="form-control valid validEmail" id="txtEmailCliente" name="txtEmailCliente">
+										</div>
+									</div>
+									<div class="row">
+										<div class="col col-md-6 form-group">
+											<label for="txtPasswordCliente">Password</label>
+											<input type="password" class="form-control valid validEmail" id="txtPasswordCliente" name="txtPasswordCliente" >
 										</div>
 									</div>
 									<button type="submit" class="btn btn-primary">Regístrate</button>
@@ -301,7 +313,6 @@ $infoTerminos = !empty(getInfoPage(PTERMINOS)) ? getInfoPage(PTERMINOS)['conteni
 										<div id="data_mp" data-key="<?= PUBLIC_KEY_MP ?>" data-products="<?= htmlspecialchars(json_encode($_SESSION["arrCarrito"]), ENT_QUOTES, "UTF-8") ?>" data-total="<?= formatMoney($total) ?>" data-url="<?= BASE_URL ?>" style="display:none"></div>
 									</label>
 								</div>
-
 								<!-- Contenedor pde mercado pago-->
 								<div style="padding: 10px; margin: 10px;">
 									<div id="wallet_container"></div>
